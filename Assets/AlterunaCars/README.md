@@ -1,6 +1,7 @@
 # Alteruna Cars
 Alteruna cars is a complete physics-based driving/racing template with sounds.\
-You can access the Alteruna documentation [here](https://alteruna.github.io/au-multiplayer-api-docs).
+You can access the Alteruna documentation [here](https://alteruna.github.io/au-multiplayer-api-docs).\
+GitHub repository available at [Alteruna/AlterunaCars](https://github.com/Alteruna/AlterunaCars)
 
 ## Requirements
 The following is a list of requirements to make the template run.
