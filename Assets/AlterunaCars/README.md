@@ -1,13 +1,33 @@
-# Alteruna Cars
-Alteruna cars is a complete physics-based driving/racing template with sounds.\
-You can access the Alteruna documentation [here](https://alteruna.github.io/au-multiplayer-api-docs).\
-GitHub repository available at [Alteruna/AlterunaCars](https://github.com/Alteruna/AlterunaCars)
+# Alteruna Multiplayer Racing Template
+
+## Overview
+Alteruna cars is a complete physics-based multiplayer driving/racing template with tire squeaking and engine rev sound effects.\
+Tweak the physics in the car body to get the game feeling the way you want.
 
 ## Requirements
 The following is a list of requirements to make the template run.
 * Alteruna SDK 1.2.0 or above.
 * Unity 2020.3 or above.
-* `Run In Bacground` set to enable in project settings.
+
+## Documentation
+
+For detailed documentation and guides on how to use the Alteruna Multiplayer, refer to the [Alteruna documentation](https://alteruna.github.io/au-multiplayer-api-docs). The documentation provides step-by-step instructions and explanations of various features.
+
+## Support and Community
+
+If you encounter any issues or have questions about the Alteruna Multiplayer FPS Template or Alteruna Multiplayer, you can reach out for support. Visit [our Discord server](https://discord.gg/QT8KTe2Hzk) to access the support resources and engage with the community. The community forums and channels are excellent places to connect with other developers, share your experiences, and collaborate on projects.
+
+## Contributions
+
+Contributions to the [Alteruna Multiplayer Racing Template](https://github.com/Alteruna/Multiplayer-Racing-Template) are welcome! If you have ideas for improvements or would like to contribute code. Your contributions can help enhance the template and benefit the entire community of developers.
+
+## Acknowledgments
+
+The Alteruna Multiplayer FPS Template is built upon the collective knowledge and efforts of many developers and contributors. We would like to express our gratitude to all those who have shared their expertise, resources, and code to make this template possible.
+
+## Disclaimer
+
+The Alteruna Multiplayer FPS Template is provided as-is, without any warranty or guarantee of its suitability for any particular purpose. While we strive to maintain the template and provide support, we cannot be held responsible for any issues or damages that may arise from its use. Always thoroughly test and verify the template in your specific project environment.
 
 ## How it works
 
