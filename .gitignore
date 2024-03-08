@@ -74,6 +74,15 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
+/[Pp]ackages/*
+
+# Lightmapps
+*.tif
+*.tif.meta
+*.exr
+*.exr.meta
+Lightmap-*
+
 # Alteruna files
 /[Aa]ssets/[Aa]lteruna/*
 /[Aa]ssets/[Aa]lteruna.meta

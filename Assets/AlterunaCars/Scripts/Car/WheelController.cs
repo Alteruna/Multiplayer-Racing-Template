@@ -7,8 +7,8 @@ namespace AlterunaCars
 		/// <summary>
 		/// Height of the trail from the ground.
 		/// </summary>
-		const float TRAIL_HEIGHT = 0.05f;
-		
+		private const float TRAIL_HEIGHT = 0.05f;
+
 		public WheelCollider WheelCollider;
 
 		[SerializeField] private Transform wheelTransform;
@@ -32,11 +32,11 @@ namespace AlterunaCars
 		[HideInInspector] public CarController CarController;
 
 		[SerializeField] private TrailRenderer Trail;
+		private float _oldExtreme;
+		private bool _oldHandbrake;
 
 
 		private float _torqueModifier = 1f;
-		private bool _oldHandbrake;
-		private float _oldExtreme;
 
 		private void Start()
 		{
@@ -54,7 +54,7 @@ namespace AlterunaCars
 
 		private void FixedUpdate()
 		{
-			WheelCollider.GetWorldPose(out Vector3 position, out Quaternion rotation);
+			WheelCollider.GetWorldPose(out var position, out var rotation);
 			wheelTransform.position = position;
 			wheelTransform.rotation = rotation;
 			Trail.transform.position = position - WheelCollider.transform.up * (WheelCollider.radius - TRAIL_HEIGHT);
@@ -62,15 +62,12 @@ namespace AlterunaCars
 
 		public void UpdateWheel(float inSteering, float inTorque, bool inHandbrake = false)
 		{
-			if (Steering)
-			{
-				WheelCollider.steerAngle = inSteering * maxSteerAngle;
-			}
+			if (Steering) WheelCollider.steerAngle = inSteering * maxSteerAngle;
 
-			if (WheelCollider.GetGroundHit(out WheelHit hit))
+			if (WheelCollider.GetGroundHit(out var hit))
 			{
-				float forwardSlip = Mathf.Abs(hit.forwardSlip);
-				float slip = forwardSlip + Mathf.Abs(hit.sidewaysSlip);
+				var forwardSlip = Mathf.Abs(hit.forwardSlip);
+				var slip = forwardSlip + Mathf.Abs(hit.sidewaysSlip);
 				if (slip > 0.5f)
 				{
 					Trail.emitting = true;
@@ -81,10 +78,7 @@ namespace AlterunaCars
 					Trail.emitting = false;
 				}
 
-				if (esp)
-				{
-					_torqueModifier = _torqueModifier * 0.9f + (1 - Mathf.Min(forwardSlip * 2, 0)) * 0.1f;
-				}
+				if (esp) _torqueModifier = _torqueModifier * 0.9f + (1 - Mathf.Min(forwardSlip * 2, 0)) * 0.1f;
 			}
 			else
 			{
@@ -92,7 +86,7 @@ namespace AlterunaCars
 				_torqueModifier = _torqueModifier * 0.9f + 0.1f;
 			}
 
-			inHandbrake &= this.handbrake;
+			inHandbrake &= handbrake;
 			if (inHandbrake)
 			{
 				inTorque = _torqueModifier = 0;
@@ -101,7 +95,7 @@ namespace AlterunaCars
 					WheelCollider.brakeTorque = 10;
 					_oldHandbrake = true;
 
-					WheelFrictionCurve fSide = WheelCollider.sidewaysFriction;
+					var fSide = WheelCollider.sidewaysFriction;
 					fSide.stiffness /= 2;
 					WheelCollider.sidewaysFriction = fSide;
 				}
@@ -111,7 +105,7 @@ namespace AlterunaCars
 				WheelCollider.brakeTorque = 0;
 				_oldHandbrake = false;
 
-				WheelFrictionCurve fSide = WheelCollider.sidewaysFriction;
+				var fSide = WheelCollider.sidewaysFriction;
 				fSide.stiffness *= 2;
 				WheelCollider.sidewaysFriction = fSide;
 			}
@@ -126,10 +120,7 @@ namespace AlterunaCars
 				else
 				{
 					WheelCollider.motorTorque = inTorque * maxTorque * _torqueModifier;
-					if (!inHandbrake)
-					{
-						WheelCollider.brakeTorque = 0;
-					}
+					if (!inHandbrake) WheelCollider.brakeTorque = 0;
 				}
 			}
 			else if (!inHandbrake)
@@ -143,7 +134,6 @@ namespace AlterunaCars
 				{
 					WheelCollider.brakeTorque = 0;
 				}
-
 			}
 		}
 	}

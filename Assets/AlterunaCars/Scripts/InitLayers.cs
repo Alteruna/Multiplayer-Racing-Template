@@ -9,7 +9,7 @@ namespace AlterunaCars
 
 		private void Awake()
 		{
-			RigidbodySynchronizable.IgnoredLayers = IgnoredRbLayers;
+			RigidbodySynchronizableCommon.IgnoredLayers = IgnoredRbLayers;
 		}
 	}
 }
